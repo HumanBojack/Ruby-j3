@@ -1,102 +1,73 @@
 position = 0
-compteur = 0
-compteur2 = 0
-arr00 = ["           ","          #","         ##","        ###","       ####","      #####","     ######","    #######","   ########","  #########",".##########"]
-arr01 = ["           ","          #","         ##","        ###","       ####","      #####","     ######","    #######","   ########"," .#########"," ##########"]
-arr02 = ["           ","          #","         ##","        ###","       ####","      #####","     ######","    #######","  .########","  #########"," ##########"]
-arr03 = ["           ","          #","         ##","        ###","       ####","      #####","     ######","   .#######","   ########","  #########"," ##########"]
-arr04 = ["           ","          #","         ##","        ###","       ####","      #####","    .######","    #######","   ########","  #########"," ##########"]
-arr05 = ["           ","          #","         ##","        ###","       ####","     .#####","     ######","    #######","   ########","  #########"," ##########"]
-arr06 = ["           ","          #","         ##","        ###","      .####","      #####","     ######","    #######","   ########","  #########"," ##########"]
-arr07 = ["           ","          #","         ##","       .###","       ####","      #####","     ######","    #######","   ########","  #########"," ##########"]
-arr08 = ["           ","          #","        .##","        ###","       ####","      #####","     ######","    #######","   ########","  #########"," ##########"]
-arr09 = ["           ","         .#","         ##","        ###","       ####","      #####","     ######","    #######","   ########","  #########"," ##########"]
-arr10 = ["          .","          #","         ##","        ###","       ####","      #####","     ######","    #######","   ########","  #########"," ##########"]
-arrcompteur = []
-10.times do
-while position < 10
+throw = 0
+nGame = 0
+count = 0
+gfx00 = ["           ","          #","         ##","        ###","       ####","      #####","     ######","    #######","   ########","  #########",".##########"]
+gfx01 = ["           ","          #","         ##","        ###","       ####","      #####","     ######","    #######","   ########"," .#########"," ##########"]
+gfx02 = ["           ","          #","         ##","        ###","       ####","      #####","     ######","    #######","  .########","  #########"," ##########"]
+gfx03 = ["           ","          #","         ##","        ###","       ####","      #####","     ######","   .#######","   ########","  #########"," ##########"]
+gfx04 = ["           ","          #","         ##","        ###","       ####","      #####","    .######","    #######","   ########","  #########"," ##########"]
+gfx05 = ["           ","          #","         ##","        ###","       ####","     .#####","     ######","    #######","   ########","  #########"," ##########"]
+gfx06 = ["           ","          #","         ##","        ###","      .####","      #####","     ######","    #######","   ########","  #########"," ##########"]
+gfx07 = ["           ","          #","         ##","       .###","       ####","      #####","     ######","    #######","   ########","  #########"," ##########"]
+gfx08 = ["           ","          #","        .##","        ###","       ####","      #####","     ######","    #######","   ########","  #########"," ##########"]
+gfx09 = ["           ","         .#","         ##","        ###","       ####","      #####","     ######","    #######","   ########","  #########"," ##########"]
+gfx10 = ["          .","          #","         ##","        ###","       ####","      #####","     ######","    #######","   ########","  #########"," ##########"]
+listthrow = []
 
-prng = rand(1..6)
-puts prng
+#2.times do
+while count < 2
+	while position < 10
+		
+		throwing = rand(1..6)
+		puts "Vous avez fait un #{throwing} !"
+		throw += 1
+		
+		case throwing
+			when(1)
+				puts "Vous descendez d'une marche."
+				position -= 1
+				position < 0 ? (position = 0) : nil
+			when(2..4)
+				puts "Vous reztez où vous êtes."
+			when(5..6)
+				puts "Vous montez une marche."
+				position += 1
+		end
 
-case prng
-when(1)
-	puts "Vous reculez d'une marche."
-	position -= 1
-	position < 0 ? (position = 0) : nil
-when(2..4)
-	puts "Rien ne se passe."
-when(5..6)
-	puts "Vous avancez d'une marche."
-	position += 1
+		case position
+			when(0)
+				puts gfx00
+			when(1)
+				puts gfx01
+			when(2)
+				puts gfx02
+			when(3)
+				puts gfx03
+			when(4)
+				puts gfx04
+			when(5)
+				puts gfx05
+			when(6)
+				puts gfx06
+			when(7)
+				puts gfx07
+			when(8)
+				puts gfx08
+			when(9)
+				puts gfx09
+			when(10)
+				puts gfx10
+		end
+		
+		puts "Vous êtes sur la marche n°#{position}"
+		puts "Lancé de dé n°#{throw}"
+		puts " "
+		listthrow.push "Game n°#{nGame} : #{throw} lancés"
+		
+	end
+	nGame += 1
+	count += 1
+	puts "Bravo ! Vous avez gagné #{nGame} fois !"
+	puts "Vos nombres de lancer : #{listthrow}"
 end
-
-case position
-when(0)
-	puts arr00
-when(1)
-	puts arr01
-when(2)
-	puts arr02
-when(3)
-	puts arr03
-when(4)
-	puts arr04
-when(5)
-	puts arr05
-when(6)
-	puts arr06
-when(7)
-	puts arr07
-when(8)
-	puts arr08
-when(9)
-	puts arr09
-when(10)
-	puts arr10
-	compteur2 += 1
-end
-	puts "Vous êtes sur la marche n°#{position}"
-	compteur += 1
-end
-	arrcompteur.push(compteur)
-
-end
-
-	puts "Vous avez gagné"
-	puts compteur
-	puts compteur2
-	puts arrcompteur
-	puts arrcompteur.length
-
-
-
-# case position
-# when(0)
-# 	puts arr00
-# when(1)
-# 	puts arr01
-# when(2)
-# 	puts arr02
-# when(3)
-# 	puts arr03
-# when(4)
-# 	puts arr04
-# when(5)
-# 	puts arr05
-# when(6)
-# 	puts arr06
-# when(7)
-# 	puts arr07
-# when(8)
-# 	puts arr08
-# when(9)
-# 	puts arr09
-# when(10)
-# 	puts arr10
-# 	compteur2 += 1
-# end
-
-
-
-
